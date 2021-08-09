@@ -63,6 +63,8 @@ clearBtn.onclick = () => clearScreen();
 deleteBtn.onclick = () => deleteEntry();
 equalBtn.onclick = () => calculate();
 
+window.onkeydown = (e) => handleKeyboardInput(e);
+
 /** Helper functions */
 function appendNumber(number) {
     if(currentOpsScreen.textContent === '0' || shouldReset)
@@ -126,4 +128,22 @@ function calculate() {
     //setting current operation back to default for further calcs
     currentOperation = null;
 
+}
+
+function setKbOpr(kbOpr) {
+    if(kbOpr == '+') return '+';
+    if(kbOpr == '-') return '-';
+    if(kbOpr == '*') return '×';
+    if(kbOpr == '/') return '÷';
+}
+
+function handleKeyboardInput(e) {
+    if(e.key >= 0 && e.key <= 9) appendNumber(e.key);
+    if(e.key === '.') appendDecimal();
+    if(e.key === 'Enter' || e.key === '=') calculate();
+    if(e.key === 'Backspace') deleteEntry();
+    if(e.key === 'Escape') clearScreen();
+
+    if(e.key == '+' || e.key == '-' || e.key == '*' || e.key == '/')
+        setOperation(setKbOpr(e.key));
 }
