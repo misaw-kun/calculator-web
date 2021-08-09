@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@font-face {
+    font-family: 'digital7';
+    src: url(fonts/digital-7.ttf);
+}
+:root {
+    --bg: #f7f1e3;
+    --calc-bg: #8395a7;
+    --screen-bg: #f1f2f6;
+    --color-border: #3d3d3d;
+    --color-btn-hover: 221, 221, 221;
+    --color-clr-btn: 112, 161, 255;
+    --color-del-btn: 255, 107, 129;
+    --color-opr: #f1f2f6;
+    --color-opr-bg: #57606f;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+    background-color: var(--bg);
+}
+
+#container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    height: 75vh;
+}
+
+.calculator {
+    width: 400px;
+    background-color: var(--calc-bg);
+    padding: 20px;
+    border: 2px black solid;
+    border-radius: 10px;
+    box-shadow: 5px 10px #616161;
+}
+
+.screen {
+    padding: 10px 20px;
+    background-color: var(--screen-bg);
+    border: 2px black solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.prev-screen {
+    font-family: 'digital7';
+    min-height: 32px;
+    font-size: 1.6em;
+    text-align: right;
+}
+
+.current-screen {
+    font-family: 'digital7';
+    min-height: 64px;
+    text-align: right;
+    font-size: 3.2em;
+}
+
+button {
+    cursor: pointer;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+
+.btn {
+    padding: 20px;
+    font-size: 20px;
+    border: 2px  solid;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: rgb(var(--color-btn-hover));
+}
+
+.btn:active {
+    background-color: rgb(var(--color-btn-hover),0.6);
+}
+
+.btn-clr-span {
+    grid-column: span 2;
+    background-color: rgb(var(--color-clr-btn));
+}
+
+.btn-clr-span:hover {
+    background-color: rgba(var(--color-clr-btn),0.7);
+}
+
+.btn-clr-span:active {
+    background-color: rgba(var(--color-clr-btn),0.4);
+}
+
+.btn-del-span {
+    grid-column: span 2;
+    background-color: rgb(var(--color-del-btn));
+}
+
+.btn-del-span:hover {
+    background-color: rgba(var(--color-del-btn),0.7);
+}
+
+.btn-del-span:active {
+    background-color: rgba(var(--color-del-btn),0.4);
+}
+
+[data-operator] {
+    color: var(--color-opr);
+    background-color: var(--color-opr-bg)
+}
+
+[data-operator]:hover {
+    color: rgb(var(--color-opr-bg));
+    background-color: #f1f2f6;
+}
+
+#footer {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 1.4em;
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #3d3d3d;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ff6b6b;
+}
