@@ -90,7 +90,7 @@ function setOperation(operator) {
     currentOperation = operator;
 
     //displaying the current sequence as the user performs their calcs
-    lastOpsScreen.textContent += `${firstOpr} ${currentOperation}`;
+    lastOpsScreen.textContent = `${firstOpr} ${currentOperation}`;
     shouldReset = true; //making it eligible for a reset action if triggered later
 }
 
@@ -105,7 +105,6 @@ function clearScreen() {
     firstOpr = '';
     secondOpr = '';
     currentOperation = null;
-    shouldReset = false;
 }
 
 function deleteEntry() {
@@ -118,6 +117,7 @@ function calculate() {
     if(currentOperation === null || shouldReset) return //returning from func if there's no current operation or the reset screen flag was truthy
     if(currentOperation === '÷' && currentOpsScreen.textContent === '0') {
         currentOpsScreen.textContent = 'UNDEFINED'
+        return
     }
     secondOpr = currentOpsScreen.textContent; //taking the second operand
 
